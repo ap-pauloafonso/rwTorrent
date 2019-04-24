@@ -1,0 +1,33 @@
+
+
+.mat-card mat-card-content {
+    margin-bottom: 0;
+  }
+  .mat-card{
+    /* padding: 5px; */
+  }
+
+  .torrentcardicons{
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+
+  .rotated {
+    transform: rotate(180deg);
+  }
+
+
+  .truncate {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.middle{
+  margin-top: 15px;
+  display: inline-flex;
+  vertical-align: middle;
+  z-index: 99999;
+}

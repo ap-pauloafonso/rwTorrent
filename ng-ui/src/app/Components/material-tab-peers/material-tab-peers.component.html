@@ -1,0 +1,15 @@
+<!-- <cdk-virtual-scroll-viewport itemSize="500">
+
+
+
+
+</cdk-virtual-scroll-viewport> -->
+
+
+<cdk-virtual-scroll-viewport itemSize="120"
+                             class="example-viewport">
+                             <div *cdkVirtualFor="let item of peers; trackBy:indentity">
+                                    <card-peer [peer]=item></card-peer>
+                                </div>
+                            
+</cdk-virtual-scroll-viewport>

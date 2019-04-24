@@ -1,0 +1,18 @@
+<h2 matDialogTitle>
+  Delete
+</h2>
+
+<div fxLayout="column" fxLayoutGap="10px">
+  <div style="overflow-wrap:normal" class="mat-body-1"> Are you sure that you want to delete<b> {{data?.name}}</b>
+    from the session?</div>
+  <mat-checkbox [(ngModel)]="checkBooxValue" [color]="'primary'">Also delete from disk</mat-checkbox>
+
+</div>
+
+<mat-dialog-actions fxLayout fxLayoutGap="10px">
+  <button (click)="onCloseCancel()" mat-raised-button>
+    Cancel
+  </button>
+  <button (click)="onCloseConfirm()" mat-raised-button>
+    Ok</button>
+</mat-dialog-actions>

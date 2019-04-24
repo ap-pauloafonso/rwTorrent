@@ -1,0 +1,36 @@
+
+
+.mat-card mat-card-content {
+    margin-bottom: 0;
+  }
+  .mat-card{
+    padding: 0px;
+  }
+  
+
+  .square {
+    width: 100px;
+    height: 100px;
+  }
+
+  .minisquare{
+    height: 50px;
+    width: 50px;
+  }
+
+  .torrentcardicons{
+    font-size: 16px;
+    margin-top: 2px;
+  }
+
+  .dumbspace{
+    width: 10px
+  }
+
+  .rotated {
+    transform: rotate(180deg);
+  }
+
+  i{
+    padding-left: 0px;
+  }

@@ -1,0 +1,154 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+html, body { margin: 0;height: 100%; }
+body { font-family: 'Roboto', sans-serif; }
+
+
+.example-full-width {
+    width: 100%;
+  }
+.cursor_pointer{
+    cursor:pointer;
+}
+
+.truncate {
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.likecard{
+    padding: 24px 16px
+}
+
+.navBar{
+    background: #27272F;
+
+}
+.blue_grey{
+    /* background-color: #373942
+     */
+     background-color: #33333D;
+}
+.background{
+    /* background-color:#424250 */
+    background-color: #33333D;
+
+}
+
+.mat-select-panel {
+    background: #33333D;
+}
+
+.mat-menu-panel {
+    background: #33333D;
+}
+
+.mat-select-content, .mat-select-panel-done-animating {
+    background: #33333D;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #1EB980;
+}
+.mat-fab.mat-accent{
+    background: #27272F;
+    color: white;
+
+}
+.mat-checkbox-checked.mat-primary .mat-checkbox-background, .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background {
+    background-color: #1EB980;
+}
+.green-primary{
+    background-color:#1EB980
+}
+.green-secondary{
+    background-color: rgb(198, 228, 139);
+}
+
+.grey{
+    background-color: grey;
+}
+.mat-dialog-container {
+    background: #27272F;
+    color: #fff;
+}
+
+.mat-icon.mat-primary {
+    color: #1EB980;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #1EB980;
+}
+
+.mat-progress-bar-buffer {
+    background-color: #706e70;
+}
+.mat-progress-bar-fill::after {
+    background-color: #1EB980;
+}
+
+.mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #1EB980;
+}
+
+.mat-slide-toggle.mat-primary.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgb(140, 228, 195)
+}
+
+.mat-card {
+    /* background: #424250; */
+    color: #fff;
+    background-color: #33333D;
+
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #1EB980;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: #1EB980;
+
+}
+.mat-input-element {
+    caret-color: #1EB980;
+}
+.colorbuffer{
+    color: #706e70
+}
+
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #1EB980;
+    /* color: #FF6859 */
+}
+
+.mat-raised-button {
+    color: #fff;
+    background-color: #27272F;
+}
+
+
+
+/* scrollsss */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /* background: rgb(105, 105, 105); 
+     */
+     background: grey;
+}

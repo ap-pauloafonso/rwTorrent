@@ -1,0 +1,32 @@
+<mat-card matRipple>
+
+    <div fxLayout="row">
+        <div fxLayout="column" fxFlex>
+            <div class="mat-body-2" >
+                Pieces
+            </div>
+
+            <div class="mat-body-1">
+                {{pieceCount}} / {{pieceTotal}}
+            </div>
+        </div>
+        <div fxFlex fxLayout="column" >
+            <div class="mat-body-2" fxLayoutAlign="end">
+                Piece Size
+            </div>
+
+            <div class="mat-body-1" fxLayoutAlign="end">
+                {{pieceSize | bytes}}
+            </div>
+        </div>
+
+
+    </div>
+
+
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row wrap">
+        <div *ngFor="let item of dataSourcePieces; let idx = index; trackBy:trackByFn" [ngClass]="renderClass(item, idx)" class="square"></div>
+    </div>
+</mat-card>

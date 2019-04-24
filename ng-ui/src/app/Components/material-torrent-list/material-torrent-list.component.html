@@ -1,0 +1,28 @@
+<div class="container">
+  <cdk-virtual-scroll-viewport itemSize="103" [ngStyle.xs]="{'height':'80vh'}" style="height:90vh; overflow-x:hidden">
+    <card-torrent *cdkVirtualFor="let item of dataSource; trackBy: trackByData" (pauseUnpauseAction)="handlePauseUnpauseAction($event)"
+      (selection)="onClick(item)" [torrentModel]=item></card-torrent>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+
+
+
+<span class="done">
+  <button mat-fab [matMenuTriggerFor]="menu"><i style="font-size: 25px" class="material-icons">
+      add
+    </i></button>
+
+</span>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item #torrentFileButton (click)="fileInput.click();">
+    <mat-icon>folder_open</mat-icon>
+    <span>.torrent file</span>
+    <input (change)="onFileChange($event)" (click)="debug()" accept=".torrent" #fileInput type="file" style="display:none;" />
+  </button>
+  <button (click)="openDialogMagnetLink()" mat-menu-item>
+    <mat-icon>link</mat-icon>
+    <span>magnet link</span>
+  </button>
+</mat-menu>

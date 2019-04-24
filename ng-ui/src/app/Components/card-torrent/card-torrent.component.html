@@ -1,0 +1,48 @@
+<mat-card style="padding:10px; overflow-x:hidden" matRipple>
+    <mat-card-content>
+
+        <div fxLayoutGap.xs="5px" fxLayoutGap.md="45px" fxLayoutGap.lg="45px" fxLayout="row" style="height: 100%">
+            <mat-icon [color]="'primary'" (click)="this.pauseUnpauseAction.emit(torrentModel)" disableRipple="true"
+                class="material-icons middle" fxFlex.xs="15" fxFlex.sm="10" fxFlex.md="5" fxFlex.lg="5%" fxFle.xl="5%"
+                style="font-size: 50px; cursor: pointer; height: 50px ; width: 50px;">
+                {{this.torrentModel?.paused ? 'play_circle_filled':'pause_circle_filled'}}
+            </mat-icon>
+            <div fxLayout="column" fxFlex (click)="this.selection.emit()" style="width: 100%">
+                <div class="mat-headline truncate" style="margin-bottom: 5px">{{torrentModel?.name}}</div>
+                <mat-progress-bar [color]="'primary'" mode="determinate" [value]="torrentModel?.progress"></mat-progress-bar>
+                <div fxLayout="row" fxLayoutGap="5px">
+
+                    <div class="mat-body">{{torrentModel?.state_str}} {{torrentModel?.progress}}%</div>
+
+                    <div class="mat-body">
+                        <i class="material-icons torrentcardicons rotated">publish</i>
+                        {{torrentModel?.total_wanted_done | bytes :2
+                        }}/{{torrentModel?.total_size |
+                        bytes : [2] }}
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="5px">
+                    <div class="mat-body">
+                        <i class="material-icons torrentcardicons">
+                            arrow_downward
+                        </i>
+                        {{torrentModel?.download_rate |bytes :2 }}/s
+                    </div>
+
+
+                    <div class="mat-body">
+                        <i class="material-icons torrentcardicons">
+                            arrow_upward
+                        </i>
+                        {{torrentModel?.upload_rate | bytes:2}}/s
+                    </div>
+                    <div class="mat-body">
+                        <i class="material-icons torrentcardicons">access_time</i>
+                        {{torrentModel?.estimated_time}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

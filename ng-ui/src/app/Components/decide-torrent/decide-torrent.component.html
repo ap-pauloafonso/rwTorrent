@@ -1,0 +1,97 @@
+<h2 matDialogTitle>
+  {{this.dataSource? this.dataSource.name: 'Downloading Metadata'}}
+</h2>
+
+<div *ngIf="this.dataSource && invalidState==undefined">
+  <!-- <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-2">
+        name
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{this.dataSource?.name}}
+      </div>
+    </div>
+  </mat-card> -->
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-2">
+        info_hash
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{this.dataSource?.info_hash}}
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-2">
+        total_size
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{this.dataSource?.total_size | bytes:2}}
+      </div>
+    </div>
+  </mat-card>
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-2">
+        num_pieces
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{this.dataSource?.num_pieces}}
+      </div>
+    </div>
+  </mat-card>
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-2">
+        piece_length
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{this.dataSource?.piece_length | bytes:2}}
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+
+<mat-progress-spinner *ngIf="!this.dataSource && invalidState==undefined" class="example-margin" [color]="'primary'"
+  [mode]="'indeterminate'">
+</mat-progress-spinner>
+
+
+<div *ngIf="invalidState=='torrent_already_exist'">
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-1">
+        The torrent is already in the session!!
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div *ngIf="invalidState=='invalid_input'">
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div *ngIf="this.data.type=='F'" fxFlex class="mat-body-1">
+        Invalid Torrent File
+      </div>
+      <div *ngIf="this.data.type=='M'" fxFlex class="mat-body-1">
+        Invalid Magnet Link
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+
+
+
+
+<mat-dialog-actions fxLayout fxLayoutGap="10px">
+  <button (click)="onCloseLeft()" mat-raised-button>
+    Cancel
+  </button>
+  <button (click)="onCloseRight()" mat-raised-button>
+    {{this.invalidState==undefined?'Ok': 'Retry'}}</button>
+</mat-dialog-actions>

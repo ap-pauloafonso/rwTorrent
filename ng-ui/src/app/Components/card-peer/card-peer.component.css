@@ -1,0 +1,9 @@
+
+  .torrentcardicons{
+    font-size: 16px;
+    margin-top: 2px;
+  }
+
+  .rotated {
+    transform: rotate(180deg);
+  }

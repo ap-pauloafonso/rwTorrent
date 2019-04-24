@@ -1,0 +1,96 @@
+<h1 mat-dialog-title>Session Settings</h1>
+<div *ngIf="isMaster else speedsession">
+
+
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <div fxFlex class="mat-body-2">
+          Api tick Rate
+        </div>
+        <mat-form-field [color]="'primary'">
+          <mat-select (valueChange)="handleTickRateChange($event)" [(value)]="tickRate">
+            <mat-option value="1000">1 second</mat-option>
+            <mat-option value="5000">5 seconds</mat-option>
+            <mat-option value="10000">10 seconds</mat-option>
+            <mat-option value="30000">30 seconds</mat-option>
+            <mat-option value="60000">1 minute</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </div>
+  </mat-card>
+
+
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <div fxFlex class="mat-body-2">
+          Max Download Rate
+        </div>
+        <div fxFlex>
+          <div class="mat-body-1">
+            {{download_limit |bytes}}/s
+          </div>
+        </div>
+      </div>
+      <div fxFlex fxLayoutAlign="end">
+        <i (click)="selectedSpeedType='download'; isMaster = false" class="material-icons">
+          edit
+        </i>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card matRipple>
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <div fxFlex class="mat-body-2">
+          Max Upload Rate
+        </div>
+        <div fxFlex>
+          <div class="mat-body-1">
+            {{upload_limit |bytes}}/s
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end">
+        <i (click)="selectedSpeedType='upload'; isMaster = false" class="material-icons">
+          edit
+        </i>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #speedsession>
+  <h2 matDialogTitle>
+    {{this.selectedSpeedType=='download'? 'Download Limit': 'Upload Limit'}}
+  </h2>
+
+
+  <mat-card [formGroup]="speedForm">
+    <mat-form-field [color]="'primary'" class="example-full-width">
+      <input matInput #message class="form-control" formControlName="speedLimit">
+      <mat-error *ngIf="speedForm.get('speedLimit').hasError('pattern')">
+        Invalid input
+      </mat-error>
+      <mat-hint align="start"><strong>Max {{this.selectedSpeedType=='download'? 'Download Limit': 'Upload Limit'}} in
+          Kb/s </strong>
+      </mat-hint>
+    </mat-form-field>
+  </mat-card>
+
+
+
+
+  <mat-dialog-actions fxLayout fxLayoutGap="10px">
+    <button (click)="onCloseSpeedCancel()" mat-raised-button>
+      Cancel
+    </button>
+    <button [disabled]="speedForm.invalid" (click)="onCloseSpeedConfirm(data)" mat-raised-button>
+      Ok</button>
+  </mat-dialog-actions>
+</ng-template>

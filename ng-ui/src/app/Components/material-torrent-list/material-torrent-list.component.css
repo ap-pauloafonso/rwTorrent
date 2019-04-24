@@ -1,0 +1,18 @@
+.done {
+  position: fixed;
+  bottom: 20px;
+  left: calc(100% - 80px);
+  color: white;
+  z-index: 2;
+}
+
+
+.scroll {
+  overflow: auto;
+  height: 100%;
+}
+
+
+.example-viewport {
+  height: 90vh;
+}

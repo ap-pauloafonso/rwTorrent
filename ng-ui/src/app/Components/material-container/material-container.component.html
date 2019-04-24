@@ -1,0 +1,92 @@
+<mat-toolbar *ngIf="isMasterMobile && isMobile" class="navBar" fxLayout="row">
+
+    <span fxFlex fxLayoutAlign="center">Torrents
+    </span>
+    <i fxLayoutAlign="end" *ngIf="selectedTorrent" (click)="handlePauseUnpauseAction(selectedTorrent)" class="material-icons cursor_pointer">
+        {{selectedTorrent.state_str=='paused'? 'play_arrow':'pause'}}
+    </i>
+    <i (click)="onRemoveClick()" *ngIf="selectedTorrent" fxLayoutAlign="end" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        delete
+    </i>
+    <i (click)="onSettingsClick()" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        settings
+    </i>
+
+
+</mat-toolbar>
+
+<mat-toolbar *ngIf="!isMasterMobile && isMobile" class="navBar" fxLayout="row">
+    <i fxLayoutAlign="start" matRipple (click)="this.isMasterMobile= true; this.selectedTorrent = undefined" [fxHide]="this.handleBackArrowHide()"
+        class="material-icons cursor_pointer">
+        arrow_back
+    </i>
+
+    <span fxFlex class="truncate" fxLayoutAlign="center">{{this.selectedTorrent?.name}}</span>
+
+
+    <i fxLayoutAlign="end" *ngIf="selectedTorrent" (click)="handlePauseUnpauseAction(selectedTorrent)" class="material-icons cursor_pointer">
+        {{selectedTorrent.state_str=='paused'? 'play_arrow':'pause'}}
+    </i>
+    <i (click)="onRemoveClick()" fxLayoutAlign="end" *ngIf="selectedTorrent" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        delete
+    </i>
+    <i (click)="onSettingsClick()" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        settings
+    </i>
+
+
+</mat-toolbar>
+
+<mat-toolbar *ngIf="!isMobile" class="navBar" fxLayout="row">
+    <p fxFlex *ngIf="selectedTorrent" fxLayoutAlign="center">{{this.selectedTorrent?.name}}</p>
+    <span fxFlex *ngIf="!selectedTorrent" fxLayoutAlign="center">Torrents
+    </span>
+    <i fxLayoutAlign="end" *ngIf="selectedTorrent" (click)="handlePauseUnpauseAction(selectedTorrent)" class="material-icons cursor_pointer">
+        {{selectedTorrent.state_str=='paused'? 'play_arrow':'pause'}}
+    </i>
+
+
+    <i (click)="onRemoveClick()" fxLayoutAlign="end" *ngIf="selectedTorrent" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        delete
+    </i>
+    <i *ngIf="isAuthenticated" (click)="onSettingsClick()" fxLayoutAlign="end" class="material-icons cursor_pointer">
+        settings
+    </i>
+</mat-toolbar>
+
+<div style="height: calc(100% - 56px);" class="background" fxLayout="row">
+    <material-torrent-list *ngIf="isAuthenticated && !isMobile || (isMobile && isMasterMobile)" class="background_rwtorrent"
+        style=" overflow-y: auto; width: 100%;" [fxHide]="isMobile && !isMasterMobile" fxFlex.xl="30" fxFlex.lg="35"
+        fxFlex.md="45" (torrentSelected)="selectTorrent($event)" [dataSource]="dataSource"></material-torrent-list>
+
+    <mat-tab-group [color]="'primary'" style=" overflow-y: auto;" *ngIf="selectedTorrent && isAuthenticated; else noTorrentSelected"
+        fxFlex [fxHide]="isMobile && isMasterMobile">
+        <mat-tab label="Status">
+            <ng-template matTabContent>
+                <material-tab-status [statusModel]="selectedTorrent"></material-tab-status>
+
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Details">
+            <ng-template matTabContent>
+                <material-tab-details [DetailsModel]="selectedTorrent"></material-tab-details>
+
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Peers">
+            <ng-template matTabContent>
+                <material-tab-peers [peers]="selectedTorrent?.peers"></material-tab-peers>
+
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Pieces">
+            <ng-template matTabContent>
+                <material-tab-pieces [infoHash]="selectedTorrent?.info_hash" [downloadingQeue]="selectedTorrent?.downloading_piece_index"
+                    [pieceTotal]="selectedTorrent?.piece_total" [pieceSize]="selectedTorrent?.piece_size" [pieceCount]="selectedTorrent?.piece_count"></material-tab-pieces>
+            </ng-template>
+
+        </mat-tab>
+    </mat-tab-group>
+    <ng-template #noTorrentSelected>
+    </ng-template>
+</div>

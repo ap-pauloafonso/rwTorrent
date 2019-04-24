@@ -1,0 +1,25 @@
+<h2 matDialogTitle>
+  {{data.isDownload? 'Download Limit': 'Upload Limit'}}
+</h2>
+
+
+<mat-dialog-content  [formGroup]="form">
+  <mat-form-field [color]="'primary'" class="example-full-width">
+    <input matInput #message class="form-control" formControlName="speedLimit">
+    <mat-error *ngIf="form.get('speedLimit').hasError('pattern')">
+      Invalid input
+    </mat-error>
+    <mat-hint align="start"><strong>Max {{data.isDownload? 'Download Limit': 'Upload Limit'}} in Kb/s </strong>
+    </mat-hint>
+  </mat-form-field>
+</mat-dialog-content>
+
+
+
+<mat-dialog-actions fxLayout fxLayoutGap="10px">
+  <button (click)="onCloseCancel()" mat-raised-button>
+    Cancel
+  </button>
+  <button [disabled]="form.invalid" (click)="onCloseConfirm()" mat-raised-button>
+    Ok</button>
+</mat-dialog-actions>

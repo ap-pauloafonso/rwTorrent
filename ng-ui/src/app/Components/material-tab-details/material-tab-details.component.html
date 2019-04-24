@@ -1,0 +1,84 @@
+<ng-template #infiniteIcon>
+    <i class="material-icons">
+        all_inclusive
+    </i>
+</ng-template>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxFlex class="mat-body-2">
+            Name
+        </div>
+        <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+            {{DetailsModel?.name}}
+        </div>
+    </div>
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxFlex class="mat-body-2">
+            Location
+        </div>
+        <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+            ./downloads
+        </div>
+    </div>
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxFlex class="mat-body-2">
+            Sequential Download
+        </div>
+        <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+            <mat-slide-toggle [color]="'primary'" (toggleChange)="handleSequentialClick()" [checked]="DetailsModel?.sequential_download"></mat-slide-toggle>
+        </div>
+    </div>
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <div fxFlex class="mat-body-2">
+                Max Download Rate
+            </div>
+            <div fxFlex>
+                <div class="mat-body-1" *ngIf="DetailsModel?.download_limit>0; else infiniteIcon">
+                    {{DetailsModel?.download_limit |bytes}}/s
+                </div>
+            </div>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+            <i class="cursor_pointer" (click)="this.openDialog(true)" class="material-icons cursor_pointer">
+                edit
+            </i>
+        </div>
+    </div>
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <div fxFlex class="mat-body-2">
+                Max Upload Rate
+            </div>
+            <div fxFlex>
+                <div class="mat-body-1" *ngIf="DetailsModel?.upload_limit>0; else infiniteIcon">
+                    {{DetailsModel?.upload_limit |bytes}}/s
+                </div>
+            </div>
+        </div>
+
+        <div fxFlex fxLayoutAlign="end">
+            <i (click)="this.openDialog(false)" class="material-icons cursor_pointer" >
+                edit
+            </i>
+        </div>
+    </div>
+</mat-card>
+<mat-card matRipple>
+    <div fxLayout="row">
+        <div fxFlex class="mat-body-2">
+            Info Hash
+        </div>
+        <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+            {{DetailsModel?.info_hash}}
+        </div>
+    </div>
+</mat-card>

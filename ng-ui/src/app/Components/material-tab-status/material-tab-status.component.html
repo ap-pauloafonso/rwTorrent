@@ -1,0 +1,82 @@
+<mat-card matRipple>
+  <div fxLayout="column"  style="width: 100%">
+    <div style="word-break: break-all;" class="mat-headline" fxLayoutAlign="center">
+      {{statusModel?.name}}
+    </div>
+    <div fxLayout="row">
+      <div fxFlex class="mat-body-1">
+        {{statusModel?.state_str}}
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+        {{statusModel?.progress}}%
+      </div>
+    </div>
+    <mat-progress-bar color="primary" mode="determinate" [value]="statusModel?.progress"></mat-progress-bar>
+    <div fxLayout="row">
+      <div fxFlex fxLayoutAlign="start">
+        <i class="material-icons torrentcardicons">
+          arrow_downward
+        </i>
+        <div class="mat-body-1">{{statusModel?.download_rate | bytes:2}}/s</div>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end">
+        <i class="material-icons torrentcardicons">
+          arrow_upward
+        </i>
+        <div class="mat-body-1">{{statusModel?.upload_rate | bytes:2}}/s</div>
+      </div>
+
+    </div>
+  </div>
+</mat-card>
+<mat-card matRipple>
+  <div fxLayout="row">
+    <div fxFlex class="mat-body-2">
+      Downloaded
+    </div>
+    <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+      {{statusModel?.total_wanted_done | bytes :2 }} / {{statusModel?.total_size | bytes: 2}}
+    </div>
+  </div>
+</mat-card>
+<mat-card matRipple>
+  <div fxLayout="row">
+    <div fxFlex class="mat-body-2">
+      Remaining Time
+    </div>
+    <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+      {{statusModel?.estimated_time}}
+    </div>
+  </div>
+</mat-card>
+<mat-card matRipple>
+  <div fxLayout="row">
+    <div fxFlex class="mat-body-2">
+      Seeders
+    </div>
+    <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+      {{statusModel?.num_seeds}}
+    </div>
+  </div>
+</mat-card>
+<mat-card matRipple>
+  <div fxLayout="row">
+    <div fxFlex class="mat-body-2">
+      Peers
+    </div>
+    <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+      {{statusModel?.num_peers}}
+    </div>
+  </div>
+</mat-card>
+<mat-card matRipple>
+  <div fxLayout="row">
+    <div fxFlex class="mat-body-2">
+      Availability
+    </div>
+    <div fxLayoutAlign="end" fxFlex class="mat-body-1">
+      {{statusModel?.availability}}
+    </div>
+  </div>
+</mat-card>

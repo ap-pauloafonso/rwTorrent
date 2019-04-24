@@ -1,0 +1,22 @@
+<h2 matDialogTitle>
+  Authentication
+</h2>
+
+
+<mat-dialog-content *ngIf="!isLoading">
+  <mat-form-field [color]="'primary'" class="example-full-width">
+    <input matInput [(ngModel)]="key_auth">
+    <mat-error>
+      Please enter a valid authentication key
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-progress-spinner *ngIf="isLoading" class="example-margin" [color]="'primary'"
+  [mode]="'indeterminate'">
+</mat-progress-spinner>
+
+<mat-dialog-actions fxLayout>
+  <button (click)="onCloseConfirm()" mat-raised-button>
+    Ok</button>
+</mat-dialog-actions>

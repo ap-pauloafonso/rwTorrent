@@ -1,0 +1,44 @@
+<mat-card matRipple>
+  <div fxLayout="column">
+    <div fxLayout="row">
+      <div fxFlex fxLayoutAlign="start" class="mat-body-2">
+        <span class="flag-icon flag-icon-{{peer?.country  | lowercase}}"></span>&nbsp;{{peer?.ip}}
+      </div>
+      <div fxLayoutAlign="end" fxFlex class="mat-body-2">
+        {{peer?.progress}}%
+      </div>
+    </div>
+    <mat-progress-bar color="primary" mode="determinate" value="{{peer?.progress || 0}}"></mat-progress-bar>
+    <div fxLayout="row">
+      <div fxFlex fxLayoutAlign="start" class="mat-body-1">
+        Port: {{peer?.port}}
+      </div>
+      <div fxFlex fxLayoutAlign="end" style="overflow:hidden; text-overflow:ellipsis" class="mat-body-1">
+        Client: {{peer?.client}}
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex fxLayoutAlign="start" class="mat-body-1">
+
+        <i class="material-icons torrentcardicons rotated">publish</i>
+
+        <div class="mat-subhead">{{peer?.total_download || 0 |bytes :2 }}</div>
+        <i class="material-icons torrentcardicons">publish</i>
+        <div class="mat-subhead">{{peer?.total_upload ||0 | bytes:2}}</div>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end" class="mat-body-1">
+        <i class="material-icons torrentcardicons">
+          arrow_downward
+        </i>
+        <div class="mat-subhead"> {{peer?.down_speed ||0 | bytes :2 }}/s</div>
+
+        <i class="material-icons torrentcardicons">
+          arrow_upward
+        </i>
+        <div class="mat-subhead"> {{peer?.up_speed ||0 | bytes :2 }}/s</div>
+      </div>
+    </div>
+  </div>
+</mat-card>
