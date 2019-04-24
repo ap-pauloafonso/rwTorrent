@@ -26,6 +26,7 @@ Por meio da biblioteca libtorrent juntamente com python-flask é possivel expor 
 * Adicionar suporte https
 
 ## Dependências python3
+* pip3
 * flask
 * aenum
 * flask_restful
@@ -34,7 +35,8 @@ Por meio da biblioteca libtorrent juntamente com python-flask é possivel expor 
 * geoip2
 * python3-libtorrent
 
-* python3-libtorrent está presente no repositorio do ubuntu e pode ser adiquirido com apt-get, o resto é possivel obter por pip3 *
+
+*python3-libtorrent está presente no repositorio do ubuntu e pode ser adiquirido também com apt-get, o resto é possivel obter com pip3*
 
 ## Dependências Angular 7
 * npm
