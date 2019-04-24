@@ -1,7 +1,7 @@
 # rwTorrent
 
 ## Sobre
-*rwTorrent é um cliente bittorrent-restful para controlar a sessão de downloads atráves do navegador.E com port-forward é possivel acessar remotamente. ![](./media/demo.gif)
+rwTorrent é um cliente bittorrent-restful para controlar a sessão de downloads atráves do navegador.E com port-forward é possivel acessar remotamente. ![](./media/demo.gif)
 
 ## Motivação
 * Faltando 5 meses para eu entregar o tcc, eu ainda não tinha o tema em mente, então veio essa ideia de fazer um client torrent para ser utlizado no navegador
