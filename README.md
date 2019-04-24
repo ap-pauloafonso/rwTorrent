@@ -5,7 +5,7 @@ rwTorrent é um cliente bittorrent-restful para controlar a sessão de downloads
 
 ## Motivação
 * Faltando 5 meses para eu entregar o tcc, eu ainda não tinha o tema em mente, então veio essa ideia de fazer um client torrent para ser utlizado no navegador
-* Devivo ao trabalho eu estava querendo aprimorar meu conhecimento no angular.
+* Devido ao trabalho eu estava querendo aprimorar meu conhecimento no angular.
 * Aprender coisas novas, no caso python e como a biblioteca de flask && libtorrent funcionam.
 
 ## Como funciona?
