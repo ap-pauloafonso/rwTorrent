@@ -1,31 +1,30 @@
 # rwTorrent
 
-## Sobre
-rwTorrent é um cliente bittorrent-restful para controlar a sessão de downloads atráves do navegador.E com port-forward é possivel acessar remotamente. ![](./media/demo.gif)
+## About
+rwTorrent is bittorrent-restful client to manage your torrent session through the browser. Also with port-forwarding it is possible to access it remotely. ![](./media/demo.gif)
 
-## Motivação
-* Faltando 5 meses para eu entregar o tcc, eu ainda não tinha o tema em mente, então veio essa ideia de fazer um client torrent para ser utlizado no navegador
-* Devido ao trabalho eu estava querendo aprimorar meu conhecimento no angular.
-* Aprender coisas novas, no caso python e como a biblioteca de flask && libtorrent funcionam.
+## Motivation
+* I needed some project to deliver for my final year at university, then i thought that this bittorrent webclient  would be a good idea.
+* Improving my ability at angular
+* Learn how popular libs such as libtorrent works 
 
-## Como funciona?
-Por meio da biblioteca libtorrent juntamente com python-flask é possivel expor informações da sessão de torrent atráves de apis e por fim consumir pela SPA escrita em Angular.
+## How does it work?
+With libs like libtorrent and python-flask it is possible to expose bittorrent session informations through de http protocol and consume it using a single page application like angular.
 
-## Funcionalidades
-* Adicionar/Remover Torrents por arquivo ou magnet link
-* Controle de Velocidade de torrents a nivel de sessão ou de torrent
-* Download Sequencial
+## Features
+* Add/Remove Torrents (file and magnet link)
+* Speed Control (session and per torrent)
+* Sequential Download
 * Pause/Resume
-* Autenticação por simples chave
-* Front End responsivo com Angular Material e Flexlayout
+* Basic Authentication
+* Front end with angular/angular-flexlayout/angular-material
 
 
-## Coisas para Melhorar
-* Persistir as configurações particulares de cada torrent no disco
-* Quando desenvolvido a rwTorrent a biding do python-libtorrent que foi compilada acabou faltando algumas funções dentre elas o session::find_torrent() que resultou em ter que fazer session::get_torrents() e iterar até achar o hash nescessario, sendo N vezes para achar no pior caso,ao invez do session::find_torrent() que faria 1 lookup na estrura interna da sessão (acredito que esteja implementado como dicionario)
-* Adicionar suporte https
+## Things to improve
+* Persist torrent specific configurations on the disk 
+* Improve performance when there is a large numbers of torrents
 
-## Dependências python3
+##  Python3 dependencies
 * pip3
 * flask
 * aenum
@@ -35,10 +34,9 @@ Por meio da biblioteca libtorrent juntamente com python-flask é possivel expor 
 * geoip2
 * python3-libtorrent
 
+*python3-libtorrent is present on ubuntu repository and can be found using apt-get, the rest is possible with just pip3*
 
-*python3-libtorrent está presente no repositorio do ubuntu e pode ser adiquirido também com apt-get, o resto é possivel obter com pip3*
-
-## Dependências Angular 7
+## Angular dependencies
 * npm
 * angular-cli
 
@@ -47,25 +45,25 @@ Por meio da biblioteca libtorrent juntamente com python-flask é possivel expor 
 cd ./ng-ui
 npm i
 cd ../../
-python3 build_and_copy_ng.py #copiar output do ng build para os arquivos estaticos da api
+python3 build_and_copy_ng.py #copy ng build output to api static files
 ```
 
-## Rodando o projeto no linux
+## Running on  linux
 ```
 cd ./torrent-api/
 chmod +x rwTorrent.py
 ./rwTorrent.py [...args]
 ```
-ou 
+or 
 ```
 cd ./torrent-api/
 python3 rwTorrent.py [...args]
 ```
-## Argumentos
+## Arguments
 ```
--o ,--open #abrir navegador
--p , --port {port_number} #setar a porta
--k , --key {key} #chave de autenticacao
+-o ,--open #open the browser
+-p , --port {port_number} #set port number
+-k , --key {key} #set authentication key
 ```
 
 
